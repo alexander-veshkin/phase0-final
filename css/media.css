@@ -1,0 +1,11 @@
+@media (max-width: 600px) {
+  .main_box {
+    flex-direction: column !important;
+    width: 225px;
+    height: 400px;
+  }
+
+  .inner_box {
+    width: 100%;
+  }
+}
