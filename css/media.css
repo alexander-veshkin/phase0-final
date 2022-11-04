@@ -2,7 +2,7 @@
   .main_box {
     flex-direction: column !important;
     width: 225px;
-    height: 400px;
+    height: auto;
   }
 
   .inner_box {

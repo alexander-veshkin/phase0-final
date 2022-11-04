@@ -25,19 +25,23 @@
   display: flex;
   flex-direction: row;
   width: 450px;
-  height: 300px;
-  border: 1px solid black;
+  height: auto;
+  border: 0px solid black;
+  border-radius: 0.5em;
 }
 
 .inner_box {
   width: 50%;
-  height: 100%;
-  border: 1px solid black;
+  /* height: 100%; */
+  border: 0px;
 }
 
 .row {
-  border: 1px solid black;
+  border-bottom: 1px solid black;
   height: 20px;
+}
+.row:last-child {
+  /* border-bottom: 0px; */
 }
 
 .input_container {
@@ -58,13 +62,25 @@ input {
   border: 1;
   font-size: 18px;
   letter-spacing: 0.05em;
+  caret-color: black;
+  box-sizing: border-box;
 }
 
 .btn_add {
   background-color: black;
   color: white;
-  padding: 6px 14px 9px 12px;
+  padding: 6px 14px 8px 14px;
   border-radius: 8px;
+  border: 0;
+  font-size: 18px;
+}
+
+.btn_clear {
+  margin-top: 20px;
+}
+
+.btn_add:active {
+  opacity: 0.7;
 }
 
 .btn_add:hover {
@@ -74,7 +90,24 @@ input {
 input {
   width: 350px;
   height: 25px;
+  outline: none;
+  caret-color: transparent;
+  animation: blink 1s step-end infinite;
   border: 0;
+}
+
+@keyframes blink {
+  from,
+  to {
+    border-left-color: transparent;
+  }
+  50% {
+    border-left-color: black;
+  }
+}
+
+input:placeholder-shown {
+  border-left: 2px solid black;
 }
 
 .clear_button {
