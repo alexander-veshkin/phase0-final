@@ -2,19 +2,22 @@
 ::after,
 :hover {
   padding: 0;
-  margin: 5px;
   box-sizing: border-box;
+  font-family: "IBM Plex Sans", sans-serif;
 }
 
-.container_main {
-  max-width: 1000px;
-  margin: 0 auto;
+.title {
+  color: #4520ab;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 52px;
+  letter-spacing: 0.1em;
+  margin: 0 !important;
 }
 
 .container_main_flex {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
@@ -37,13 +40,41 @@
   height: 20px;
 }
 
-input {
-  border: 1;
-}
-
 .input_container {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   flex-direction: row;
+  border: 2px solid black;
+  width: 500px;
+  height: 56px;
+  padding: 0 10px;
+  margin: 55px;
+  border-radius: 14px;
+  font-size: 18px;
+}
+
+input {
+  border: 1;
+  font-size: 18px;
+  letter-spacing: 0.05em;
+}
+
+.btn_add {
+  background-color: black;
+  color: white;
+  padding: 6px 14px 9px 12px;
+  border-radius: 8px;
+}
+
+.btn_add:hover {
+  cursor: pointer;
+}
+
+input {
+  width: 350px;
+  height: 25px;
+  border: 0;
 }
 
 .clear_button {
