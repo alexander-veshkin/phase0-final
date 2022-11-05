@@ -1,11 +1,41 @@
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .main_box {
     flex-direction: column !important;
-    width: 225px;
+    width: 328px;
     height: auto;
   }
 
+  .title {
+    font-size: 30px;
+    letter-spacing: 0.05em;
+    margin-bottom: 0;
+  }
   .inner_box {
     width: 100%;
+  }
+
+  .right .row {
+    border-left: 0px;
+  }
+
+  .inner_box.left {
+    border-radius: 0.5em 0.5em 0em 0em !important;
+  }
+
+  .inner_box.right {
+    border-bottom: 0px solid black;
+    border-radius: 0em 0em 0.5em 0.5em !important;
+  }
+
+  div.inner_box.left > div:last-child {
+    border-bottom: 1px solid black !important;
+  }
+
+  .input_container {
+    width: 328px !important;
+  }
+
+  input {
+    font-size: 15px;
   }
 }

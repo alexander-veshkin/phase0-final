@@ -2,17 +2,19 @@
 ::after,
 :hover {
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
   font-family: "IBM Plex Sans", sans-serif;
+  /* background-color: #dfdfdf; */
 }
 
 .title {
   color: #4520ab;
   font-weight: 600;
-  font-size: 40px;
+  font-size: 30px;
   line-height: 52px;
   letter-spacing: 0.1em;
-  margin: 0 !important;
+  margin: 30px;
 }
 
 .container_main_flex {
@@ -24,10 +26,9 @@
 .main_box {
   display: flex;
   flex-direction: row;
-  width: 450px;
+  width: 500px;
   height: auto;
   border: 0px solid black;
-  border-radius: 0.5em;
 }
 
 .inner_box {
@@ -36,12 +37,43 @@
   border: 0px;
 }
 
+.inner_box.left {
+  background-color: #f0f0f0;
+  border-radius: 0.5em 0em 0em 0.5em;
+}
+
+.inner_box.right {
+  background-color: #d3d0d0;
+  border-radius: 0em 0.5em 0.5em 0em;
+}
+
 .row {
   border-bottom: 1px solid black;
-  height: 20px;
+  height: 33px;
 }
+
+.right .row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 10px;
+  border-left: 2px solid black;
+}
+
+.left .row {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.num {
+  padding-right: 20px;
+  font-weight: 800;
+}
+
 .row:last-child {
-  /* border-bottom: 0px; */
+  border-bottom: 0px;
 }
 
 .input_container {
@@ -83,7 +115,9 @@ input {
   opacity: 0.7;
 }
 
-.btn_add:hover {
+.btn_add:hover,
+.btn_clear:hover,
+button {
   cursor: pointer;
 }
 
@@ -109,13 +143,42 @@ input {
 input:placeholder-shown {
   border-left: 2px solid black;
 }
-
-.clear_button {
-  display: flex;
+/* 
+.clear {
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
+} */
 
-  width: 100px;
+.btn_clear {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  background-color: #adadad;
+  border-radius: 0.5em;
+  width: 170px;
   height: 30px;
-  border: 1px solid black;
+  border: 0;
+  font-weight: 400;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.btn_clear > button {
+  border: 0;
+  background-color: #adadad;
+  font-size: 17px;
+
+  margin-left: 15px;
+}
+
+img.del {
+  background-color: #747474;
+  border-radius: 5em;
+  padding: 3px;
+}
+
+/* del small */
+.inner_box.right img {
+  background-color: #747474;
+  border-radius: 5em;
+  padding: 3px;
 }
