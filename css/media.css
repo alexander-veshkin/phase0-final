@@ -46,6 +46,7 @@
 
   input {
     font-size: 15px;
+    margin-right: 20px;
   }
 
   .inner_box.right .num {

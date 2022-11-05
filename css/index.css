@@ -96,11 +96,10 @@
 }
 
 input {
-  border: 1;
   font-size: 18px;
   letter-spacing: 0.05em;
-  caret-color: black;
-  box-sizing: border-box;
+  /* border: 1px solid black !important; */
+  margin-right: 20px;
 }
 
 .btn_add {
@@ -142,14 +141,16 @@ input {
   }
 }
 
+.textRow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
 input:placeholder-shown {
   border-left: 2px solid black;
 }
-/* 
-.clear {
-  justify-content: center;
-  align-items: center;
-} */
 
 .btn_clear {
   display: flex;

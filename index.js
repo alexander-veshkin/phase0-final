@@ -62,7 +62,6 @@ document.getElementById("add").addEventListener("click", function () {
   getEl(rightLastRow).appendChild(makeTextDiv(rowCount));
   getEl(leftLastRow).appendChild(makeImg());
   getEl(rightLastRow).appendChild(makeImg());
-  // getEl(leftLastRow).appendChild(makeImg());
   updateNumbers();
 
   getEl(leftLastRow + " .del").addEventListener("click", function () {
@@ -111,4 +110,12 @@ function updateNumbers() {
   leftRows.forEach((el, i) => {
     el.getElementsByClassName("num")[0].textContent = i + 1;
   });
+}
+
+//overflow
+function overflow(str) {
+  if (str.length > 15) {
+    str = str.slice(0, 15) + "...";
+  }
+  return str;
 }
