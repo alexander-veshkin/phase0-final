@@ -52,35 +52,40 @@ document.getElementById("add").addEventListener("click", function () {
   const rightLastRow = ".inner_box.right > .row:last-child";
 
   let textOrigin = document.getElementById("inputText").value;
-  // CREATE ROWS
-  getEl(".inner_box.right").appendChild(makeRow());
-  getEl(".inner_box.left").appendChild(makeRow());
-  rowCount++;
-  div = makeTextDiv(rowCount);
-  div.getElementsByClassName("text")[0].textContent = textOrigin;
-  divTranslit = makeTextDiv(rowCount);
-  divTranslit.getElementsByClassName("text")[0].textContent =
-    translit(textOrigin);
-  getEl(leftLastRow).appendChild(div);
-  getEl(rightLastRow).appendChild(divTranslit);
-  getEl(leftLastRow).appendChild(makeImg());
-  getEl(rightLastRow).appendChild(makeImg());
-  updateNumbers();
+  if (textOrigin) {
+    // CREATE ROWS
+    getEl(".inner_box.right").appendChild(makeRow());
+    getEl(".inner_box.left").appendChild(makeRow());
+    rowCount++;
+    div = makeTextDiv(rowCount);
+    div.getElementsByClassName("text")[0].textContent = textOrigin;
+    divTranslit = makeTextDiv(rowCount);
+    divTranslit.getElementsByClassName("text")[0].textContent =
+      translit(textOrigin);
+    getEl(leftLastRow).appendChild(div);
+    getEl(rightLastRow).appendChild(divTranslit);
+    getEl(leftLastRow).appendChild(makeImg());
+    getEl(rightLastRow).appendChild(makeImg());
+    updateNumbers();
+    //clear input
+    document.getElementById("inputText").value = "";
+    document.getElementById("inputText").focus();
 
-  getEl(leftLastRow + " .del").addEventListener("click", function () {
-    rowNum =
-      event.target.parentElement.getElementsByClassName("num")[0].textContent;
-    getEls(".inner_box.left .row")[rowNum - 1].remove();
-    getEls(".inner_box.right .row")[rowNum - 1].remove();
-    updateNumbers();
-  });
-  getEl(rightLastRow + " .del").addEventListener("click", function () {
-    rowNum =
-      event.target.parentElement.getElementsByClassName("num")[0].textContent;we
-    getEls(".inner_box.left .row")[rowNum - 1].remove();
-    getEls(".inner_box.right .row")[rowNum - 1].remove();
-    updateNumbers();
-  });
+    getEl(leftLastRow + " .del").addEventListener("click", function () {
+      rowNum =
+        event.target.parentElement.getElementsByClassName("num")[0].textContent;
+      getEls(".inner_box.left .row")[rowNum - 1].remove();
+      getEls(".inner_box.right .row")[rowNum - 1].remove();
+      updateNumbers();
+    });
+    getEl(rightLastRow + " .del").addEventListener("click", function () {
+      rowNum =
+        event.target.parentElement.getElementsByClassName("num")[0].textContent;
+      getEls(".inner_box.left .row")[rowNum - 1].remove();
+      getEls(".inner_box.right .row")[rowNum - 1].remove();
+      updateNumbers();
+    });
+  }
 });
 
 //CLEAR ALL Button
