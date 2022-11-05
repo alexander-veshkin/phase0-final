@@ -20,11 +20,16 @@
 
   .inner_box.left {
     border-radius: 0.5em 0.5em 0em 0em !important;
+    border-bottom: 1px solid black;
   }
 
   .inner_box.right {
     border-bottom: 0px solid black;
     border-radius: 0em 0em 0.5em 0.5em !important;
+  }
+
+  .inner_box.left .row img {
+    visibility: unset;
   }
 
   div.inner_box.left > div:last-child {
@@ -37,5 +42,9 @@
 
   input {
     font-size: 15px;
+  }
+
+  .inner_box.right .num {
+    display: unset;
   }
 }
