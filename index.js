@@ -59,7 +59,8 @@ document.getElementById("add").addEventListener("click", function () {
   div = makeTextDiv(rowCount);
   div.getElementsByClassName("text")[0].textContent = textOrigin;
   divTranslit = makeTextDiv(rowCount);
-  divTranslit.getElementsByClassName("text")[0].textContent = translit(textOrigin);
+  divTranslit.getElementsByClassName("text")[0].textContent =
+    translit(textOrigin);
   getEl(leftLastRow).appendChild(div);
   getEl(rightLastRow).appendChild(divTranslit);
   getEl(leftLastRow).appendChild(makeImg());
@@ -74,7 +75,8 @@ document.getElementById("add").addEventListener("click", function () {
     updateNumbers();
   });
   getEl(rightLastRow + " .del").addEventListener("click", function () {
-    rowNum = event.target.parentElement.textContent;
+    rowNum =
+      event.target.parentElement.getElementsByClassName("num")[0].textContent;we
     getEls(".inner_box.left .row")[rowNum - 1].remove();
     getEls(".inner_box.right .row")[rowNum - 1].remove();
     updateNumbers();
