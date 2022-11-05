@@ -58,8 +58,10 @@ document.getElementById("add").addEventListener("click", function () {
   rowCount++;
   div = makeTextDiv(rowCount);
   div.getElementsByClassName("text")[0].textContent = textOrigin;
+  divTranslit = makeTextDiv(rowCount);
+  divTranslit.getElementsByClassName("text")[0].textContent = translit(textOrigin);
   getEl(leftLastRow).appendChild(div);
-  getEl(rightLastRow).appendChild(makeTextDiv(rowCount));
+  getEl(rightLastRow).appendChild(divTranslit);
   getEl(leftLastRow).appendChild(makeImg());
   getEl(rightLastRow).appendChild(makeImg());
   updateNumbers();
@@ -112,10 +114,57 @@ function updateNumbers() {
   });
 }
 
-//overflow
-function overflow(str) {
-  if (str.length > 15) {
-    str = str.slice(0, 15) + "...";
-  }
-  return str;
+//translitFunction
+function translit(str) {
+  obj = {
+    а: "a",
+    б: "b",
+    в: "v",
+    г: "g",
+    д: "d",
+    е: "e",
+    ё: "е",
+    ж: "j",
+    з: "z",
+    и: "i",
+    й: "i",
+    к: "k",
+    л: "l",
+    м: "m",
+    н: "n",
+    о: "o",
+    п: "p",
+    р: "r",
+    с: "s",
+    т: "t",
+    у: "u",
+    ф: "f",
+    х: "h",
+    ц: "ts",
+    ч: "ch",
+    ш: "sh",
+    щ: "sh",
+    ъ: "'",
+    ы: "i",
+    ь: "'",
+    э: "e",
+    ю: "u",
+    я: "ya",
+  };
+
+  var regex = /^[!@#\$%\^\&*\)\(+=.:?><_-]/;
+
+  arr = str.split("").map((i) => {
+    if (i === " " || regex.test(i)) {
+      return i;
+    }
+
+    if (i.toUpperCase() === i) {
+      return obj[i.toLowerCase()].toUpperCase();
+    }
+
+    return obj[i];
+  });
+
+  return arr.join("");
 }
