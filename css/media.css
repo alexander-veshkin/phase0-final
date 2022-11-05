@@ -40,6 +40,10 @@
     width: 328px !important;
   }
 
+  .row img {
+    height: 18px;
+  }
+
   input {
     font-size: 15px;
   }

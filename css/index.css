@@ -51,27 +51,6 @@
   height: 33px;
 }
 
-/* .row:hover {
-
-} */
-
-.tooltip {
-  /* visibility: hidden; */
-  position: block;
-  width: 100px;
-  border: 1px solid black;
-}
-
-.row:hover {
-  cursor: pointer;
-}
-
-.row:hover .tooltip {
-  visibility: visible;
-  z-index: 1;
-  background-color: red;
-}
-
 .right .row {
   display: flex;
   align-items: center;
@@ -137,13 +116,10 @@ input {
   margin-top: 20px;
 }
 
-.btn_add:active {
-  opacity: 0.7;
-}
-
 .btn_add:hover,
 .btn_clear:hover,
-button {
+button,
+img.del:hover {
   cursor: pointer;
 }
 
@@ -202,20 +178,13 @@ img.del {
   padding: 3px;
 }
 
-img.del:hover {
-  cursor: pointer;
-}
-
-.inner_box.right .row:first-child img {
-  opacity: 0.5;
-}
-
+.inner_box.right .row:first-child img,
 .inner_box.left .row:first-child img {
   opacity: 0.5;
 }
 
-.inner_box.right .row:first-child img:hover {
-  opacity: 0.6;
+.inner_box.right .row:first-child img:hover,
+.inner_box.left .row:first-child img:hover {
   cursor: unset;
 }
 
