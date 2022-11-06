@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "IBM Plex Sans", sans-serif;
+  background-color: rgb(236, 120, 120);
 }
 
 .title {
@@ -129,6 +130,7 @@ input {
 .btn_clear {
   margin-top: 20px;
   opacity: 0.5;
+  background-color: #4520ab !important;
 }
 
 .btn_add:hover,
@@ -145,6 +147,7 @@ input {
   caret-color: transparent;
   animation: blink 1s step-end infinite;
   border: 0;
+  color: #4520ab !important;
 }
 
 @keyframes blink {
@@ -171,7 +174,6 @@ input:placeholder-shown {
 .btn_clear {
   display: flex;
   align-items: center;
-  /* justify-content: space-between; */
   background-color: #adadad;
   border-radius: 0.5em;
   width: 170px;
@@ -183,9 +185,9 @@ input:placeholder-shown {
 }
 .btn_clear > button {
   border: 0;
-  background-color: #adadad;
+  background-color: #4520ab !important;
+  color: white;
   font-size: 17px;
-
   margin-left: 15px;
 }
 
