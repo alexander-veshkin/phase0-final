@@ -102,6 +102,9 @@ document.getElementById("add").addEventListener("click", function () {
       getEls(".inner_box.right .row")[rowNum - 1].remove();
       updateNumbers();
       document.getElementById("inputText").focus();
+      if (getEls(".row").length === 2) {
+        document.getElementById("btnClear").style.opacity = 0.5;
+      }
     });
     getEl(rightLastRow + " .del").addEventListener("click", function () {
       rowNum =
@@ -110,6 +113,9 @@ document.getElementById("add").addEventListener("click", function () {
       getEls(".inner_box.right .row")[rowNum - 1].remove();
       updateNumbers();
       document.getElementById("inputText").focus();
+      if (getEls(".row").length === 2) {
+        document.getElementById("btnClear").style.opacity = 0.5;
+      }
     });
   }
 });
