@@ -20,6 +20,24 @@
   align-items: center;
 }
 
+#add:active {
+  opacity: 0.9;
+  color: #4520ab;
+  transition: 0.1;
+}
+
+.tooltip {
+  visibility: visible;
+  position: absolute;
+  background-color: white;
+  border: 2px solid #4520ab;
+  border-radius: 0.7em;
+  visibility: hidden;
+  z-index: 1;
+  padding: 10px;
+  margin-top: 30px;
+}
+
 .main_box {
   display: flex;
   flex-direction: row;
@@ -30,7 +48,6 @@
 
 .inner_box {
   width: 50%;
-  /* height: 100%; */
   border: 0px;
 }
 
@@ -111,6 +128,7 @@ input {
 
 .btn_clear {
   margin-top: 20px;
+  opacity: 0.5;
 }
 
 .btn_add:hover,

@@ -21,8 +21,11 @@ const makeTextDiv = (count) => {
   spanNum.className = "num";
   spanNum.textContent = count;
   span = spanText.appendChild(spanNum);
+  let tooltip = document.createElement("div");
+  tooltip.className = "tooltip";
   let div = document.createElement("div");
   div.className = "textRow";
+  div.appendChild(tooltip);
   div.appendChild(spanNum);
   div.appendChild(spanText);
   return div;
@@ -48,6 +51,8 @@ const getEls = (s) => {
 //ADD Button
 let rowCount = 1;
 document.getElementById("add").addEventListener("click", function () {
+  document.getElementById("inputText").focus();
+
   const leftLastRow = ".inner_box.left > .row:last-child";
   const rightLastRow = ".inner_box.right > .row:last-child";
 
@@ -59,8 +64,11 @@ document.getElementById("add").addEventListener("click", function () {
     rowCount++;
     div = makeTextDiv(rowCount);
     div.getElementsByClassName("text")[0].textContent = textOrigin;
+    div.getElementsByClassName("tooltip")[0].textContent = textOrigin;
     divTranslit = makeTextDiv(rowCount);
     divTranslit.getElementsByClassName("text")[0].textContent =
+      translit(textOrigin);
+    divTranslit.getElementsByClassName("tooltip")[0].textContent =
       translit(textOrigin);
     getEl(leftLastRow).appendChild(div);
     getEl(rightLastRow).appendChild(divTranslit);
@@ -71,12 +79,29 @@ document.getElementById("add").addEventListener("click", function () {
     document.getElementById("inputText").value = "";
     document.getElementById("inputText").focus();
 
+    //tooltip
+    document.querySelectorAll(".row").forEach((el, i) => {
+      el.addEventListener("mouseover", (event) => {
+        el.getElementsByClassName("tooltip")[0].style = "visibility: visible";
+      });
+    });
+
+    document.querySelectorAll(".row").forEach((el) => {
+      el.addEventListener("mouseout", (event) => {
+        el.getElementsByClassName("tooltip")[0].style = "visibility: hidden";
+      });
+    });
+
+    document.getElementById("btnClear").style.opacity = 1;
+
+    //remove
     getEl(leftLastRow + " .del").addEventListener("click", function () {
       rowNum =
         event.target.parentElement.getElementsByClassName("num")[0].textContent;
       getEls(".inner_box.left .row")[rowNum - 1].remove();
       getEls(".inner_box.right .row")[rowNum - 1].remove();
       updateNumbers();
+      document.getElementById("inputText").focus();
     });
     getEl(rightLastRow + " .del").addEventListener("click", function () {
       rowNum =
@@ -84,7 +109,15 @@ document.getElementById("add").addEventListener("click", function () {
       getEls(".inner_box.left .row")[rowNum - 1].remove();
       getEls(".inner_box.right .row")[rowNum - 1].remove();
       updateNumbers();
+      document.getElementById("inputText").focus();
     });
+  }
+});
+
+//hotkey
+document.addEventListener("keydown", (even) => {
+  if (event.key === "Enter") {
+    document.getElementById("add").click();
   }
 });
 
@@ -102,6 +135,8 @@ document.getElementById("btnClear").addEventListener("click", function () {
   });
 
   document.getElementById("inputText").value = "";
+  document.getElementById("inputText").focus();
+  document.getElementById("btnClear").style.opacity = 0.5;
 
   rowCount = 1;
 });
@@ -160,9 +195,10 @@ function translit(str) {
   };
 
   var regex = /^[!@#\$%\^\&*\)\(+=.:?><_-]/;
+  var num = /^[0-9]+$/;
 
   arr = str.split("").map((i) => {
-    if (i === " " || regex.test(i)) {
+    if (i === " " || regex.test(i) || num.test(i)) {
       return i;
     }
 
